@@ -19,8 +19,8 @@ def pitagoras_calculator():
       return (f"The length of the side a is {result}")
       
     elif side == "b":
-        c = int(args.get("c"))
         a = int(args.get("a"))
+        c = int(args.get("c"))
         result = math.sqrt(c ** 2 - a ** 2)
         return (f"The length of the side b is {result}")
 
