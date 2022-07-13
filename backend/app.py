@@ -11,25 +11,24 @@ def health_check():
 def pitagoras_calculator():
     args = request.args
     side = args.get("side")
+    hip = int(args.get("hip")) if args.get("hip") else 0
+    sideA = int(args.get("sideA")) if args.get("sideA") else 0
+    sideB = int(args.get("sideB")) if args.get("sideB") else 0
 
-    a = int(args.get("a")) if args.get("a") else 0
-    b = int(args.get("b")) if args.get("b") else 0
-    c = int(args.get("c")) if args.get("c") else 0
-
-    if side == "a":
-      result = math.sqrt(c ** 2 + b ** 2)
-      return (f"The length of the side a is {result}")
+    if side == "hip":
+      result = math.sqrt(sideA ** 2 + sideB ** 2)
+      return (f"The length of the hypotenuse is {result}")
       
-    elif side == "b":
-        result = math.sqrt(c ** 2 - a ** 2)
-        return (f"The length of the side b is {result}")
+    elif side == "sideA":
+        result = math.sqrt(hip ** 2 - sideB ** 2)
+        return (f"The length of the side a is {result}")
 
-    elif side == "c":
-        result = math.sqrt(b ** 2 - a ** 2)
-        return (f"The length of the hypotenuse c is {result}")
+    elif side == "sideB":
+        result = math.sqrt(hip ** 2 - sideA ** 2)
+        return (f"The length of the side b is {result}")
     
     elif side == "area":
-        result = (a * b) / 2
+        result = (sideA * sideB) / 2
         return (f"The area of this triangule is {result}")
         
     else:
