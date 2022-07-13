@@ -12,22 +12,25 @@ def pitagoras_calculator():
     args = request.args
     side = args.get("side")
 
+    a = int(args.get("a")) if args.get("a") else 0
+    b = int(args.get("b")) if args.get("b") else 0
+    c = int(args.get("c")) if args.get("c") else 0
+
     if side == "a":
-      b = int(args.get("b"))
-      c = int(args.get("c"))
-      result = math.sqrt(c ** 2 - b ** 2)
+      result = math.sqrt(c ** 2 + b ** 2)
       return (f"The length of the side a is {result}")
       
     elif side == "b":
-        a = int(args.get("a"))
-        c = int(args.get("c"))
         result = math.sqrt(c ** 2 - a ** 2)
         return (f"The length of the side b is {result}")
 
     elif side == "c":
-        b = int(args.get("b"))
-        a = int(args.get("a"))
-        result = math.sqrt(a ** 2 + b ** 2)
+        result = math.sqrt(b ** 2 - a ** 2)
         return (f"The length of the hypotenuse c is {result}")
+    
+    elif side == "area":
+        result = (a * b) / 2
+        return (f"The area of this triangule is {result}")
+        
     else:
         return ("Invalid input")
