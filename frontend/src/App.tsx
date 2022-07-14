@@ -1,29 +1,44 @@
 import { useState } from "react";
+import pythagorasImg from "./assets/pythagorasTheorem.png";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Calculadora do Teorema de Pitágoras</h1>
-      <div>
+      <h1 className="App-title">Calculadora do Teorema de Pitágoras</h1>
+      <div className="App-text">
         <h2>Texto sobre o teorema de pitágoras</h2>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est voluptas
           quos amet minima corrupti neque saepe distinctio porro expedita rem
           esse quo deserunt, non blanditiis. Voluptates unde optio beatae cum?
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
+          doloremque officiis, fugiat asperiores, excepturi odio quod
+          accusantium deserunt iusto, error culpa. Impedit optio minus molestias
+          ab eveniet quasi dolor nobis! Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Omnis eos quam obcaecati excepturi ratione dolorum,
+          magnam corporis iure soluta provident nostrum libero! Harum sed
+          laborum nostrum dolor dolores laboriosam illum.
         </p>
       </div>
-      <div>
-        {/* <img src="" alt="" /> */}
-        <input type="checkbox" name="area-toggle" id="area-toggle" />
-        <div>
-          <span>hip</span>
-          <span>ladoA</span>
-          <span>ladoB</span>
+      <div className="content-container">
+        <img src={pythagorasImg} alt="pythagoras theorem" />
+        <div className="form-container">
+          <input type="checkbox" name="area-toggle" id="area-toggle" />
+          <div>
+            <label htmlFor="hip">Valor da Hipotenusa:</label>
+            <input type="text" name="hip" />
+
+            <label htmlFor="sideA">Valor do Cateto a</label>
+            <input type="text" name="sideA" />
+
+            <label htmlFor="sideB">Valor do Cateto b</label>
+            <input type="text" name="sideB" />
+          </div>
+          <button>calcular</button>
+          <button>Limpar campos</button>
+          <div>resolução do problema</div>
         </div>
-        <button>calcular</button>
-        <button>Limpar campos</button>
-        <div>resolução do problema</div>
       </div>
     </div>
   );

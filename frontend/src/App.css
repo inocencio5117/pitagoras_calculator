@@ -1,41 +1,43 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+.App {
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App-text {
+  width: 60rem;
+  height: fit-content;
+  background-color: #eee;
+
+  margin: 2rem 0;
+  padding: 1rem;
+
+  border-top: 3px solid #ff0000;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-text h2 {
+  margin-bottom: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.App-text p {
+  font-size: 1.15rem;
+  line-height: 1.5;
 }
 
-.card {
-  padding: 2em;
+.App-text p::first-letter {
+  font-size: 200%;
+  color: #8a2be2;
+  vertical-align: middle;
 }
 
-.read-the-docs {
-  color: #888;
+.content-container {
+  display: flex;
+  place-items: center;
+}
+
+.content-container .form-container {
+  /* display: flex; */
+  background-color: red;
 }
