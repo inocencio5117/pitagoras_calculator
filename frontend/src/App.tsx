@@ -2,14 +2,20 @@ import React, { useState } from "react";
 
 import axios from "axios";
 
+import { translateSideName } from "./utils/translateSideName";
 import pythagorasImg from "./assets/pythagorasTheorem.png";
 import "./App.css";
 
+type IRestult = {
+  side: string | null;
+  value: number;
+};
+
 function App() {
-  const [hip, setHip] = useState("");
-  const [sideA, setSideA] = useState("");
-  const [sideB, setSideB] = useState("");
-  const [result, setResult] = useState("");
+  const [hip, setHip] = useState<string>("");
+  const [sideA, setSideA] = useState<string>("");
+  const [sideB, setSideB] = useState<string>("");
+  const [result, setResult] = useState<IRestult>();
 
   function handleInput(
     element: React.ChangeEvent<HTMLInputElement>,
@@ -26,11 +32,20 @@ function App() {
   }
 
   async function handleCalculate() {
+    const hypotenuse = hip === "" ? 0 : hip;
+    const A = sideA === "" ? 0 : sideA;
+    const B = sideB === "" ? 0 : sideB;
+
+    const side =
+      A === 0 ? "sideA" : B === 0 ? "sideB" : hypotenuse === 0 ? "hip" : null;
+
     const request = await axios(
-      `http://127.0.0.1:5000/calculate?side=sideB&hip=5&sideA=3`
+      `http://127.0.0.1:5000/calculate?side=${side}&hip=${hypotenuse}&sideA=${A}&sideB=${B}`
     );
 
+    setResult({ side, value: request.data.result });
     console.log(request.data);
+    console.log(result);
   }
 
   return (
@@ -55,15 +70,13 @@ function App() {
       <div className="content-container">
         <img src={pythagorasImg} alt="pythagoras theorem" />
         <div className="form-container">
-          {/* <input type="checkbox" name="area-toggle" id="area-toggle" /> */}
-
           <div className="form-wrapper">
             <div className="form-child">
               <label htmlFor="hip">Valor da Hipotenusa:</label>
               <input
                 type="number"
                 name="hip"
-                placeholder="?"
+                placeholder="Hipotenusa (h)"
                 value={hip}
                 onChange={(el) => handleInput(el, setHip)}
               />
@@ -76,7 +89,7 @@ function App() {
               <input
                 type="number"
                 name="sideA"
-                placeholder="3"
+                placeholder="Lado A (3)"
                 value={sideA}
                 onChange={(el) => handleInput(el, setSideA)}
               />
@@ -89,7 +102,7 @@ function App() {
               <input
                 type="number"
                 name="sideB"
-                placeholder="4"
+                placeholder="Lado B (4)"
                 value={sideB}
                 onChange={(el) => handleInput(el, setSideB)}
               />
@@ -102,10 +115,16 @@ function App() {
             <button onClick={handleCalculate}>Calcular</button>
             <button onClick={handleClearButton}>Limpar campos</button>
           </div>
-
-          {/* <div>resolução do problema</div> */}
         </div>
       </div>
+
+      {result?.value ? (
+        <span className="result">
+          <b>Resultado:</b> O valor d{result?.side === "hip" ? "a" : "o"}{" "}
+          <b>{translateSideName(result?.side) ?? ""}</b> é{" "}
+          <b>{result?.value}</b>
+        </span>
+      ) : null}
     </div>
   );
 }

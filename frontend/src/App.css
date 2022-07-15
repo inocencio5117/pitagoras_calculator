@@ -61,7 +61,7 @@
 .form-child input {
   float: right;
   padding: 0.25rem;
-  width: 5rem;
+  width: 7.5rem;
 }
 
 .buttons-container {
@@ -75,4 +75,9 @@
   background-color: orange;
   border: 1px solid orange;
   color: white;
+}
+
+.result {
+  padding-top: 2rem;
+  font-size: 1.25rem;
 }
