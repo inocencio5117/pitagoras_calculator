@@ -6,8 +6,12 @@
   padding: 2rem;
 }
 
-.App-text {
+.App-text,
+.content-container {
   width: 60rem;
+}
+
+.App-text {
   height: fit-content;
   background-color: #eee;
 
@@ -34,10 +38,41 @@
 
 .content-container {
   display: flex;
-  place-items: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .content-container .form-container {
-  /* display: flex; */
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.form-container .form-child {
+  margin: 2rem 0rem 2rem;
+}
+
+.form-child label {
+  margin-right: 5rem;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+.form-child input {
+  float: right;
+  padding: 0.25rem;
+  width: 5rem;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+}
+
+.buttons-container button {
+  padding: 0.5rem;
+  background-color: orange;
+  border: 1px solid orange;
+  color: white;
 }

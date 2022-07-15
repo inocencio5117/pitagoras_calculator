@@ -21,23 +21,41 @@ function App() {
           laborum nostrum dolor dolores laboriosam illum.
         </p>
       </div>
+
       <div className="content-container">
         <img src={pythagorasImg} alt="pythagoras theorem" />
         <div className="form-container">
-          <input type="checkbox" name="area-toggle" id="area-toggle" />
-          <div>
-            <label htmlFor="hip">Valor da Hipotenusa:</label>
-            <input type="text" name="hip" />
+          {/* <input type="checkbox" name="area-toggle" id="area-toggle" /> */}
 
-            <label htmlFor="sideA">Valor do Cateto a</label>
-            <input type="text" name="sideA" />
+          <div className="form-wrapper">
+            <div className="form-child">
+              <label htmlFor="hip">Valor da Hipotenusa:</label>
+              <input type="text" name="hip" placeholder="?" />
+            </div>
 
-            <label htmlFor="sideB">Valor do Cateto b</label>
-            <input type="text" name="sideB" />
+            <hr />
+
+            <div className="form-child">
+              <label htmlFor="sideA">Valor do Cateto a:</label>
+              <input type="text" name="sideA" placeholder="3" />
+            </div>
+
+            <hr />
+
+            <div className="form-child">
+              <label htmlFor="sideB">Valor do Cateto b:</label>
+              <input type="text" name="sideB" placeholder="4" />
+            </div>
           </div>
-          <button>calcular</button>
-          <button>Limpar campos</button>
-          <div>resolução do problema</div>
+
+          <hr />
+
+          <div className="buttons-container">
+            <button>Calcular</button>
+            <button>Limpar campos</button>
+          </div>
+
+          {/* <div>resolução do problema</div> */}
         </div>
       </div>
     </div>
