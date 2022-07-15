@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import { translateSideName } from "./utils/translateSideName";
-import pythagorasImg from "./assets/pythagorasTheorem.png";
 import "./App.css";
 
 type IRestult = {
@@ -12,9 +11,9 @@ type IRestult = {
 };
 
 function App() {
-  const [hip, setHip] = useState<string>("");
-  const [sideA, setSideA] = useState<string>("");
-  const [sideB, setSideB] = useState<string>("");
+  const [hip, setHip] = useState<string>("h");
+  const [sideA, setSideA] = useState<string>("a");
+  const [sideB, setSideB] = useState<string>("b");
   const [result, setResult] = useState<IRestult>();
 
   function handleInput(
@@ -54,21 +53,33 @@ function App() {
       <div className="App-text">
         <h2>Texto sobre o teorema de pitágoras</h2>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est voluptas
-          quos amet minima corrupti neque saepe distinctio porro expedita rem
-          esse quo deserunt, non blanditiis. Voluptates unde optio beatae cum?
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
-          doloremque officiis, fugiat asperiores, excepturi odio quod
-          accusantium deserunt iusto, error culpa. Impedit optio minus molestias
-          ab eveniet quasi dolor nobis! Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Omnis eos quam obcaecati excepturi ratione dolorum,
-          magnam corporis iure soluta provident nostrum libero! Harum sed
-          laborum nostrum dolor dolores laboriosam illum.
+          Num triângulo retângulo, sempre que conhecer o compremento de dois
+          lados, torna-se fácil descobrir o comprimento do terceiro lado que
+          falta. Para isso usa-se o famoso{" "}
+          <a
+            href="https://pt.wikipedia.org/wiki/Teorema_de_Pit%C3%A1goras"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <b>Teorema de Pitágoras:</b>
+          </a>
+          <i>
+            {" "}
+            h <sup>2</sup> = a <sup>2</sup> + b <sup>2</sup>
+          </i>
+          . Usando uma linguagem menos teórica este teorema afirma que o
+          quadrado da hipotenusa é igual à soma do quadrado dos catetos. Para
+          ver como funciona basta introduzir nos campos abaixo os valores
+          conhecidos.
         </p>
       </div>
 
       <div className="content-container">
-        <img src={pythagorasImg} alt="pythagoras theorem" />
+        <div id="triangle-bottomleft">
+          <b className="hip">{hip}</b>
+          <b className="sideA">{sideA}</b>
+          <b className="sideB">{sideB}</b>
+        </div>
         <div className="form-container">
           <div className="form-wrapper">
             <div className="form-child">
@@ -89,7 +100,7 @@ function App() {
               <input
                 type="number"
                 name="sideA"
-                placeholder="Lado A (3)"
+                placeholder="Lado A (a)"
                 value={sideA}
                 onChange={(el) => handleInput(el, setSideA)}
               />
@@ -102,7 +113,7 @@ function App() {
               <input
                 type="number"
                 name="sideB"
-                placeholder="Lado B (4)"
+                placeholder="Lado B (b)"
                 value={sideB}
                 onChange={(el) => handleInput(el, setSideB)}
               />

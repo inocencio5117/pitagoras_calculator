@@ -13,12 +13,12 @@
 
 .App-text {
   height: fit-content;
-  background-color: #eee;
+  background-color: #c7c7c7;
 
   margin: 2rem 0;
   padding: 1rem;
 
-  border-top: 3px solid #ff0000;
+  border-top: 3px solid #ffdf00;
 }
 
 .App-text h2 {
@@ -30,9 +30,15 @@
   line-height: 1.5;
 }
 
+.App-text p a {
+  color: #00529d;
+  font-weight: regular;
+  text-decoration: underline;
+}
+
 .App-text p::first-letter {
   font-size: 200%;
-  color: #8a2be2;
+  color: #373b48;
   vertical-align: middle;
 }
 
@@ -40,6 +46,37 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.content-container #triangle-bottomleft {
+  width: 0;
+  height: 0;
+  border-bottom: 230px solid #ffdf00;
+  border-right: 230px solid transparent;
+}
+
+.hip,
+.sideA,
+.sideB {
+  font-size: 1.65rem;
+}
+
+.content-container #triangle-bottomleft .hip {
+  position: relative;
+  left: 110px;
+  top: 80px;
+}
+
+.content-container #triangle-bottomleft .sideA {
+  position: relative;
+  left: -40px;
+  top: 100px;
+}
+
+.content-container #triangle-bottomleft .sideB {
+  position: relative;
+  left: 70px;
+  top: 240px;
 }
 
 .content-container .form-container {
@@ -72,12 +109,38 @@
 
 .buttons-container button {
   padding: 0.5rem;
-  background-color: orange;
-  border: 1px solid orange;
-  color: white;
+  background-color: #ffdf00;
+  border: 1px solid #ffdf00;
+  color: #373b48;
+  font-weight: 700;
 }
 
 .result {
   padding-top: 2rem;
   font-size: 1.25rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .App-text,
+  .content-container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content-container {
+    flex-direction: column-reverse;
+  }
+
+  .form-container,
+  #triangle-bottomleft {
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .form-container .form-child {
+    display: flex;
+    justify-content: space-around;
+  }
 }

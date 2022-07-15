@@ -39,6 +39,7 @@ strong {
 
 body {
   -webkit-font-smoothing: antialiased;
+  background-color: #dedcd7;
 }
 
 body,
@@ -49,15 +50,12 @@ button {
   font: 400 1rem "Roboto", sans-serif;
 }
 
-/* hide arrows
- Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none !important;
   margin: 0 !important;
 }
 
-/* Firefox */
 input[type="number"] {
   -moz-appearance: textfield !important;
 }
