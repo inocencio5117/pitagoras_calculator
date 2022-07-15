@@ -1,5 +1,5 @@
 import math
-from flask import Flask, request
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -17,19 +17,27 @@ def pitagoras_calculator():
 
     if side == "hip":
       result = math.sqrt(sideA ** 2 + sideB ** 2)
-      return (f"The length of the hypotenuse is {result}")
+      response = jsonify(result=result)
+      response.headers.add("Access-Control-Allow-Origin", "*")
+      return response
       
     elif side == "sideA":
         result = math.sqrt(hip ** 2 - sideB ** 2)
-        return (f"The length of the side a is {result}")
+        response = jsonify(result=result)
+        response.headers.add("Access-Control-Allow-Origin", "*")
+        return response
 
     elif side == "sideB":
         result = math.sqrt(hip ** 2 - sideA ** 2)
-        return (f"The length of the side b is {result}")
+        response = jsonify(result=result)
+        response.headers.add("Access-Control-Allow-Origin", "*")
+        return response
     
     elif side == "area":
         result = (sideA * sideB) / 2
-        return (f"The area of this triangule is {result}")
+        response = jsonify(result=result)
+        response.headers.add("Access-Control-Allow-Origin", "*")
+        return response
         
     else:
-        return ("Invalid input")
+        return jsonify(result="Invalid Input")
