@@ -1,4 +1,4 @@
-#
+# Calculadora de Teorema de Pitágoras
 
 A simple Pythagoras Theorem Calculator, built with [React](https://reactjs.org/) and [Flask](https://flask.palletsprojects.com/en/2.1.x/).
 
